@@ -31,7 +31,7 @@ function statusChangeCallback(response) {
 
   window.fbAsyncInit = function() {
   FB.init({
-    appId      : '873965739332025',
+    appId      : 873965739332025,
     cookie     : true,  // enable cookies to allow the server to access 
                         // the session
     xfbml      : true,  // parse social plugins on this page
