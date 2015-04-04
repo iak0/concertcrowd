@@ -10,9 +10,13 @@ function statusChangeCallback(response) {
       testAPI();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
     } else {
       // The person is not logged into Facebook, so we're not sure if
       // they are logged into this app or not.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into Facebook.';
     }
   }
 
@@ -27,7 +31,7 @@ function statusChangeCallback(response) {
 
   window.fbAsyncInit = function() {
   FB.init({
-    appId      : '873965739332025',
+    appId      : 873965739332025,
     cookie     : true,  // enable cookies to allow the server to access 
                         // the session
     xfbml      : true,  // parse social plugins on this page
@@ -47,22 +51,8 @@ function statusChangeCallback(response) {
   // These three cases are handled in the callback function.
 
   FB.getLoginStatus(function(response) {
-            alert(response);
-            if(response.status === 'connected') {
-            if(response.authResponse != 'undefined') {
-                    window.location = '<?php echo $base_url; ?>register';
-                        }
-            } else if(response.status === 'not_authorized') {
-                        // it means we have a user but he hasn't granted any permissions to our app
-                        // we're going to redirect him to the permission page
-            } else {
-                        //the user is not logged in, as you already have a login button you don't have to do nothing  
-            }
-        });
-
-        FB.Event.subscribe('auth.login', function(response) {
-            window.location = '<?php echo $base_url; ?>register';
-        });
+    statusChangeCallback(response);
+  });
 
   };
 
@@ -81,6 +71,8 @@ function statusChangeCallback(response) {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
     });
   }
 
