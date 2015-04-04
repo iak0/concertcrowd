@@ -49,8 +49,8 @@ body {
 }
 
 #connect{
-	top: 85%;
-	left: 35%;
+	top: 83%;
+	left: 33%;
 	color: white;
 	position: absolute;
 	font-size: 15px;
@@ -70,7 +70,7 @@ body {
 	display: inline-block;
 	width: 55px;
 	padding: 5px 45px;
-	margin: 5px;
+	margin: 8px;
   	background-color: rgba(190,190,190,0.5);
   	line-height: 18px;
 }
