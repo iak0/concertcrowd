@@ -47,8 +47,22 @@ function statusChangeCallback(response) {
   // These three cases are handled in the callback function.
 
   FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
+            alert(response);
+            if(response.status === 'connected') {
+            if(response.authResponse != 'undefined') {
+                    window.location = '<?php echo $base_url; ?>register';
+                        }
+            } else if(response.status === 'not_authorized') {
+                        // it means we have a user but he hasn't granted any permissions to our app
+                        // we're going to redirect him to the permission page
+            } else {
+                        //the user is not logged in, as you already have a login button you don't have to do nothing  
+            }
+        });
+
+        FB.Event.subscribe('auth.login', function(response) {
+            window.location = '<?php echo $base_url; ?>register';
+        });
 
   };
 
