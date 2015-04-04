@@ -73,11 +73,10 @@
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
+      console.log('Thanks for logging in, ' + response.name + '!');
     });
   }
 
   function redirectToMainPage() {
-    window.location.replace("/home.html")
+    window.location.replace("https://concertcrowd.herokuapp.com/home.html")
   }
