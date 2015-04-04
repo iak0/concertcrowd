@@ -25,7 +25,15 @@ function statusChangeCallback(response) {
   // code below.
   function checkLoginState() {
     FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
+      if (response.status === 'connected') {
+        redirectToMainPage();
+      } else if (response.status === 'unknown') {
+        FB.login(function(response) {
+           statusChangeCallback(response);
+        });
+      } else {
+        statusChangeCallback(response);
+      }
     });
   }
 
@@ -51,7 +59,15 @@ function statusChangeCallback(response) {
   // These three cases are handled in the callback function.
 
   FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
+    if (response.status === 'connected') {
+      redirectToMainPage();
+    } else if (response.status === 'unknown') {
+      FB.login(function(response) {
+         statusChangeCallback(response);
+      });
+    } else {
+      statusChangeCallback(response);
+    }
   });
 
   };
