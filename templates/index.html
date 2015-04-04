@@ -5,7 +5,7 @@
 <head> 
 	<title> Concert Crowd </title>
 	<link rel="stylesheet" type="text/css" href= {{ url_for('static', filename='css/style.css') }} />
-	<script type="text/javascript" {{ url_for('static', filename='js/script.js') }}></script>
+	<script type="text/javascript" src = {{ url_for('static', filename='js/script.js') }}></script>
 	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans:300,600' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
 	<link rel="shortcut icon" type="image/png" href={{ url_for('static', filename='imgs/icon.jpg') }}/>
@@ -30,7 +30,9 @@
 			<u>Connect With:</u>
 		<div id="connect-buttons">
 			<div id="facebook" class="sign-in">
-				Facebook
+				<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+				</fb:login-button>
+
 			</div>
 			<div id="email" class="sign-in">
 				Email
