@@ -1,0 +1,76 @@
+body {
+	width: 100%;
+ 	height: 100%;
+ 	display: block;
+  	top: 0;
+  	left: -20;
+	font-family: 'Josefin Sans', sans-serif;
+}
+#background-img {
+	width: 100%;
+  	margin: 0px auto;
+  	top: -80px;
+  	left: 0;
+  	position: absolute;
+}
+
+#background-overlay {
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	height: 100%;
+  	width: 100%;
+  	background-color: rgba(0,0,0,0.6);
+  	z-index: 1;
+}
+
+#img-box{
+	width: 100%;
+}
+
+#title-box{
+	margin: 0px auto;
+	top: 50%;
+	left: 30%;
+	position: absolute;
+	z-index: 2;
+	padding: 10px;
+	color: #e8e8e8;
+}
+#title{
+	font-size: 100px;
+	font-family: 'Dancing Script', cursive;
+}
+
+#tag-line{
+	padding-left: 10%;
+	top: -20px;
+	position: relative;
+}
+
+#connect{
+	top: 85%;
+	left: 35%;
+	color: white;
+	position: absolute;
+	font-size: 15px;
+	z-index: 2;
+	text-align: center;
+}
+
+#connect-buttons{
+	width: 100%;
+	z-index: 2;
+	padding: 20px;
+}
+
+.sign-in{
+	z-index: 2;
+	border-radius: 5px;
+	display: inline-block;
+	width: 55px;
+	padding: 5px 45px;
+	margin: 5px;
+  	background-color: rgba(190,190,190,0.5);
+  	line-height: 18px;
+}
