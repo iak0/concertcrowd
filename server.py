@@ -5,11 +5,9 @@ from flask.ext.script import Manager, Server
 
 
 app = Flask(__name__)
-app.debug = True
-if app.debug:
-    app.config["MONGODB_SETTINGS"] = {'DB': "concertcrowd"}
-else:
-    app.config["MONGODB_SETTINGS"] = {'DB': "concertcrowd", 'host':'mongodb://ds061371.mongolab.com/heroku_app35547130', 'port': 61371}
+
+# app.config["MONGODB_SETTINGS"] = {'DB': "concertcrowd"}
+app.config["MONGODB_SETTINGS"] = {'DB': "concertcrowd", 'host':'mongodb://ds061371.mongolab.com/heroku_app35547130', 'port': 61371}
 
 app.config["SECRET_KEY"] = "KeepThisS3cr3t"
 
