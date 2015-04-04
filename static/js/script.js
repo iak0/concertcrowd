@@ -1,5 +1,4 @@
-  // This is called with the results from from FB.getLoginStatus().
-  function statusChangeCallback(response) {
+function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
     // The response object is returned with a status field that lets the
@@ -9,7 +8,6 @@
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       testAPI();
-      redirectToMainPage();
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -73,7 +71,8 @@
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
-      console.log('Thanks for logging in, ' + response.name + '!');
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
     });
   }
 
