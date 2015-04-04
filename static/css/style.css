@@ -52,7 +52,7 @@ body {
 
 #connect{
 	top: 83%;
-	left: 33%;
+	left: 50%;
 	color: white;
 	position: absolute;
 	font-size: 15px;
@@ -63,7 +63,7 @@ body {
 #connect-buttons{
 	width: 100%;
 	z-index: 2;
-	padding: 50px;
+	padding: 20px;
 }
 
 .sign-in{
