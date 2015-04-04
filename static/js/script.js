@@ -61,10 +61,6 @@ function statusChangeCallback(response) {
   FB.getLoginStatus(function(response) {
     if (response.status === 'connected') {
       redirectToMainPage();
-    } else if (response.status === 'unknown') {
-      FB.login(function(response) {
-         statusChangeCallback(response);
-      });
     } else {
       statusChangeCallback(response);
     }
@@ -93,5 +89,5 @@ function statusChangeCallback(response) {
   }
 
   function redirectToMainPage() {
-    window.location.replace("https://concertcrowd.herokuapp.com/home.html")
+    window.location.replace("https://concertcrowd.herokuapp.com/home")
   }
