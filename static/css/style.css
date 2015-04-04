@@ -70,7 +70,7 @@ body {
 	display: inline-block;
 	width: 55px;
 	padding: 5px 45px;
-	margin: 8px;
+	margin: 0px 8px;
   	background-color: rgba(190,190,190,0.5);
   	line-height: 18px;
 }
