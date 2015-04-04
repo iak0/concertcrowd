@@ -9,6 +9,7 @@
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       testAPI();
+      redirectToMainPage()
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -75,4 +76,19 @@
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
     });
+  }
+
+  function redirectToMainPage() {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if (request.readyState === 4) {
+            if (request.status === 200) {
+                document.body.className = 'ok';
+            } else {
+                document.body.className = 'error';
+            }
+        }
+    };
+    request.open("GET", "/home" , true);
+    request.send(null);
   }
