@@ -1,16 +1,26 @@
 import os
 from flask import Flask, render_template, request
-from urllib2 import urlopen
-from xml.dom import minidom
-from random import choice
+from flask.ext.mongoengine import MongoEngine
+from flask.ext.script import Manager, Server
 
 app = Flask(__name__)
+app.config["MONGODB_SETTINGS"] = {'DB': "concertcrowd"}
+app.config["SECRET_KEY"] = "KeepThisS3cr3t"
+
+db = MongoEngine(app)
+
+manager = Manager(app)
+
+# Turn on debugger by default and reloader
+manager.add_command("runserver", Server(
+    use_debugger = True,
+    use_reloader = True)
+)
 
 @app.route('/', methods = ["GET"])
 def home():
     return render_template('index.html', time = "", author = "", genre = "", song_id = "0", play = "false")
 
-
 if __name__ == '__main__':
     app.debug = True
-    app.run()
+    manager.run()
