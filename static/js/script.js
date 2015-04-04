@@ -8,7 +8,7 @@ function statusChangeCallback(response) {
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       testAPI();
-    } else 
+    } else {
       FB.login(function(response) {
         if (response.authResponse) {
            testAPI();
