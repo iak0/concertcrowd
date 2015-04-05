@@ -30,11 +30,11 @@ def login():
 
 @app.route('/home', methods = ["GET"])
 def home():
-	#location zipCode
-	zipCode = '95128'
-	#e1,e2 = nearbyEvents(zipCode)
-	e1,e2 = [],[]
-	return render_template('home.html', hits="", events1=e1, events2=e2)
+    #location zipCode
+    zipCode = '95128'
+    #e1,e2 = nearbyEvents(zipCode)
+    e1,e2 = [],[]
+    return render_template('home.html', hits="", events1=e1, events2=e2)
 
 @app.route('/home', methods = ["POST"])
 def context():
@@ -46,18 +46,19 @@ def context():
 
     query = session.request('GET', "https://api.context.io/2.0/accounts/", header_auth=True, params={'email': email}, headers={})
     if query.json() == []:
+        email, password = request.form["email"], request.form["password"]  
         print("not found")
         if "aol" in email:
-            server = "imap.yahoo.com"
-            port = 993
-        if "yahoo" in email:
             server = "imap.aol.com"
             port = 993
-        acc = requests.post("https://api.context.io/2.0/accounts", header_auth=True, params={'email': email}, headers={})
+        if "yahoo" in email:
+            server = "imap.mail.yahoo.com"
+            port = 993
+        acc = session.request('POST', "https://api.context.io/2.0/accounts", header_auth=True, data={'email': email}, headers={})
         mailbox_params = {'label': 0, 'email': email, 'password':password, 'type':"IMAP",
                          "use_ssl":"1", "username":email, "server":server, "port":port}
         id = acc.json()["id"]
-        box = session.request('POST', "https://api.context.io/2.0/accounts/"+id+"/sources", header_auth=True, params=mailbox_params, headers={})
+        box = session.request('POST', "https://api.context.io/2.0/accounts/"+id+"/sources", header_auth=True, data=mailbox_params, headers={})
         print(acc.json())
         print(box.json())
     else:
@@ -65,9 +66,9 @@ def context():
         print(query.json())
         id = query.json()[0]["id"]
 
-    search_params = {"subject":"/concert|Ticketmaster|StubHub/", "include_body":1}
+    search_params = {"subject":"/concert|Ticketmaster|Stubhub/", "include_body":1}
     search = session.request('GET', "https://api.context.io/2.0/accounts/"+id+"/messages", header_auth=True, params=search_params, headers={})
-    hits = [(hit["subject"], hit["body"][0]["content"].replace("\n","").replace("\r", "")) for hit in search.json()]
+    hits = [hit["subject"]+hit["body"][0]["content"][:500] for hit in search.json()]
     print(hits)
     return render_template('home.html', hits=hits)
 
