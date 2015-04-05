@@ -30,10 +30,10 @@ def login():
 
 @app.route('/home', methods = ["GET"])
 def home():
-	#location zipCode
-	zipCode = '95128'
-	#e1,e2 = nearbyEvents(zipCode)
-	e1,e2 = [],[]
+    #location zipCode
+    zipCode = '95128'
+    #e1,e2 = nearbyEvents(zipCode)
+    e1,e2 = [],[]
     return render_template('home.html', hits="", events1=e1, events2=e2)
 
 @app.route('/home', methods = ["POST"])
