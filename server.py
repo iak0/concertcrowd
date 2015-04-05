@@ -34,7 +34,7 @@ def home():
 	zipCode = '95128'
 	#e1,e2 = nearbyEvents(zipCode)
 	e1,e2 = [],[]
-    return render_template('home.html', hits="", events1=e1, events2=e2)
+	return render_template('home.html', hits="", events1=e1, events2=e2)
 
 @app.route('/home', methods = ["POST"])
 def context():
