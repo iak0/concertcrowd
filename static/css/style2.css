@@ -53,9 +53,6 @@ span{
 	font-weight: thin;
 	font-family: "Josefin Sans"
 }
-.title.bot{
-	font-size: 30px;
-}
 
 #events{
 	padding-top: 15px;
@@ -63,19 +60,24 @@ span{
 	width: 90%;
 }
 .block{
-	margin: 20px 10px;
-	padding: 10px 25px ;
+	margin: 0px 10px;
+  	padding: 5px 25px;
 	display: inline-block;
 	width: 40%;
 	height: 80%;
 	font-size:14px;
 	font-family: "Lato", sans-serif;
 	font-weight: lighter;
-	position: relative;
+}
+.block2{
+ 	margin: 5px 5%;
+	display: inline-block;
+	background-color: rgba(190,190,190,0.1);
+	width:40%;
 }
 
 #divider{
-	height: 69%;
+	height: 70%;
 	width: 1px;
 	background-color: #333;
 	display: inline-block;
@@ -83,13 +85,13 @@ span{
 	position: absolute;
 	left: 50%
 }
-#divider#bot{
-	background-color: #888;
+#d2{
+  	margin: 2% 0;
+  	height: 80%;
 }
 .body-block{
 	margin: 0 auto;
   	padding-left: 10%;
-  	width: 65%;
 }
 .bar{
 	height: 1px;
@@ -106,15 +108,25 @@ span{
 	position: relative;
 	display: inline-block;
 }
+
+#right{
+	position: absolute;
+}
 .events{
 	text-align: center;
 	height: 95px;
+}
+
+.events2{
+	text-align: center;
+	height: 95px;
+	margin: 5% 0;
 }
 #back-overlay{
 	position: absolute;
 	z-index: 0;
 	width: 80%;
-	height: 83%;
+	height: 87%;
 	margin: 0 auto;
 	left: 10%;
 	top:20px;
@@ -160,14 +172,6 @@ span{
 	font-size: 14px;
 	font-weight: lighter;
 }
-.bot-block{
-	width: 40%;
-	height: 80%;
-	background-color: rgba(190,190,190,0.3);
-	border-radius: 10px;
-	position: absolute;
-	z-index: -5;
-}
 input{
 	border-radius: 5px;
     -webkit-appearance: none; 
@@ -177,5 +181,6 @@ input{
 }
 input[type=submit]{
 	width: 20%;
-	background-color: #333;
+	background-color: #555;
+	color: white;
 }
