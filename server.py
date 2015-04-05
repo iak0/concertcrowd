@@ -30,7 +30,6 @@ def login():
 
 @app.route('/home', methods = ["GET"])
 def home():
-<<<<<<< HEAD
 	#location zipCode
 	zipCode = '95128'
 	#e1,e2 = nearbyEvents(zipCode)
