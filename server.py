@@ -67,7 +67,7 @@ def context():
         print(query.json())
         id = query.json()[0]["id"]
 
-    search_params = {"subject":"/concert|Ticketmaster|Stubhub/", "include_body":1}
+    search_params = {"subject":"/Concert|concert|Ticketmaster|Stubhub|Ticketfly/", "include_body":1}
     search = session.request('GET', "https://api.context.io/2.0/accounts/"+id+"/messages", header_auth=True, params=search_params, headers={})
     hits = [hit["subject"]+hit["body"][0]["content"][:500] for hit in search.json()]
     print(hits)
