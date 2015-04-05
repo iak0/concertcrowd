@@ -1,8 +1,10 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from flask.ext.mongoengine import MongoEngine
 from flask.ext.script import Manager, Server
 
+import requests
+from rauth import OAuth1Session
 
 app = Flask(__name__)
 
@@ -27,7 +29,42 @@ def login():
 
 @app.route('/home', methods = ["GET"])
 def home():
-    return render_template('home.html')
+    return render_template('home.html', hits="")
+
+@app.route('/home', methods = ["POST"])
+def context():
+    email, password = request.form["email"], request.form["password"]  
+    
+    CONSUMER_KEY = '1lpx2bez'
+    CONSUMER_SECRET = 'rkCatV0VIxUA6gDm'
+    session = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET)
+
+    query = session.request('GET', "https://api.context.io/2.0/accounts/", header_auth=True, params={'email': email}, headers={})
+    if query.json() == []:
+        print("not found")
+        if "aol" in email:
+            server = "imap.yahoo.com"
+            port = 993
+        if "yahoo" in email:
+            server = "imap.aol.com"
+            port = 993
+        acc = requests.post("https://api.context.io/2.0/accounts", header_auth=True, params={'email': email}, headers={})
+        mailbox_params = {'label': 0, 'email': email, 'password':password, 'type':"IMAP",
+                         "use_ssl":"1", "username":email, "server":server, "port":port}
+        id = acc.json()["id"]
+        box = session.request('POST', "https://api.context.io/2.0/accounts/"+id+"/sources", header_auth=True, params=mailbox_params, headers={})
+        print(acc.json())
+        print(box.json())
+    else:
+        print("found")
+        print(query.json())
+        id = query.json()[0]["id"]
+
+    search_params = {"subject":"/concert|Ticketmaster|StubHub/", "include_body":1}
+    search = session.request('GET', "https://api.context.io/2.0/accounts/"+id+"/messages", header_auth=True, params=search_params, headers={})
+    hits = [(hit["subject"], hit["body"][0]["content"].replace("\n","").replace("\r", "")) for hit in search.json()]
+    print(hits)
+    return render_template('home.html', hits=hits)
 
 if __name__ == '__main__':
     app.debug = True
