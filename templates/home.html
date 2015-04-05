@@ -44,12 +44,13 @@
 
 	<div id="bot-container" >
 		<div id="arrow"></div>
+        {% if hits == "" %}
 		<div class="title" id="email">
 			Sign into your email to find your upcoming events and tickets
 		</div>
 		<div class="bar"></div>
 		
-		<form action="context.js">
+		<form action="home" method ="post">
 			<div id="context" >
 				<div class= "button">
 					Email:<br>
@@ -63,6 +64,17 @@
 					<input type="submit" value="Sign In">
 				</div>
 			</form>
+            {% endif %}
+            {% if hits %}
+            <div>
+
+                <ul id="results"> 
+                {% for hit in hits %}
+                    <li> {{hit}} </li>
+                {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
 		</div>
 	</div>
 
