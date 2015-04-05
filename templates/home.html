@@ -65,31 +65,34 @@
 					<input type="submit" value="Sign In">
 				</div>
 			</form>
-            {% endif %}
-            {% if hits %}
+        {% endif %}
+        {% if hits %}
 
 			<div class="title bot" id="my-form" style="font-size:30px; margin-top:17px">
 				My Events
 			</div>
 
 			<div class="bar"></div>
-			<div class="bot-blocks"></div>
+			<div class="bot-block"></div>
             <div>
 
-			<div class="block" >
+			<div class="block2" >
                 {% for hit in hits %}
-					<div class="events">{{hit}} </div>
+					<div class="events">
+	                    {{hit.subject}} <br>
+	                    {{hit.body}}
+                	</div>
+            </div>
+               	{% endfor %}
+            </div>
+            </div>
+			<div id="divider" ></div>
+			<div class="bot-block"></div>
 
-                    {{hit.subject}} <br>
-                    {{hit.body}}
-                {% endfor %}
-            </div>
-            </div>
-			<div id="divider bot" ></div>
-			<div class="bot-blocks"></div>
+			<div class="block2" >
 				<div class="fb-comments" data-href="http://developers.facebook.com/docs/plugins/comments/" data-width="350" data-numposts="10" data-colorscheme="dark"></div>
-		</div>
-            {% endif %}
+			</div>
+        {% endif %}
 	</div>
 
 </body>

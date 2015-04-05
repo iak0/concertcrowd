@@ -87,3 +87,4 @@ function statusChangeCallback(response) {
     console.log("redirecting")
     window.location.replace("https://concertcrowd.herokuapp.com/home")
   }
+

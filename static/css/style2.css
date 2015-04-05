@@ -53,6 +53,9 @@ span{
 	font-weight: thin;
 	font-family: "Josefin Sans"
 }
+.title.bot{
+	font-size: 30px;
+}
 
 #events{
 	padding-top: 15px;
@@ -68,10 +71,11 @@ span{
 	font-size:14px;
 	font-family: "Lato", sans-serif;
 	font-weight: lighter;
+	position: relative;
 }
 
 #divider{
-	height: 70%;
+	height: 69%;
 	width: 1px;
 	background-color: #333;
 	display: inline-block;
@@ -79,9 +83,13 @@ span{
 	position: absolute;
 	left: 50%
 }
+#divider#bot{
+	background-color: #888;
+}
 .body-block{
 	margin: 0 auto;
   	padding-left: 10%;
+  	width: 65%;
 }
 .bar{
 	height: 1px;
@@ -151,6 +159,14 @@ span{
 	position: relative;
 	font-size: 14px;
 	font-weight: lighter;
+}
+.bot-block{
+	width: 40%;
+	height: 80%;
+	background-color: rgba(190,190,190,0.3);
+	border-radius: 10px;
+	position: absolute;
+	z-index: -5;
 }
 input{
 	border-radius: 5px;
