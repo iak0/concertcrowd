@@ -74,6 +74,7 @@ span{
 	display: inline-block;
 	background-color: rgba(190,190,190,0.1);
 	width:40%;
+	border-radius: 10px;
 }
 
 #divider{
