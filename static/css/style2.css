@@ -38,6 +38,28 @@ body {
 
 #events{
 	font-size: 40px;
+	width: 90%;
+}
+.block{
+	margin: 20px 10px;
+	padding: 10px 25px ;
+	display: inline-block;
+	width: 40%;
+	height: 60%;
+}
+
+#divider{
+	height: 70%;
+	width: 1px;
+	background-color: #333;
+	display: inline-block;
+	padding: 0;
+	position: absolute;
+	left: 50%
+}
+.body-block{
+	margin: 0 auto;
+  	padding-left: 10%;
 }
 .bar{
 	height: 1px;
@@ -45,6 +67,17 @@ body {
 	margin: 5px auto;
 	background-color: white;
 	position: relative;
+}
+.bar2{
+	height: 1px;
+	width: 90%;
+	margin: 20px auto;
+	background-color: #444;
+	position: relative;
+	display: inline-block;
+}
+.events{
+	text-align: center;
 }
 #top-container .title .bar:hover {
 	background-color: #f4f4f4;
@@ -65,6 +98,7 @@ body {
 	margin-top: -25px;
 	z-index: -10;
 }
+
 #context{
 	width: 40%;
 	height: 50%;
@@ -93,4 +127,5 @@ input{
 }
 input[type=submit]{
 	width: 20%;
+	background-color: #333;
 }

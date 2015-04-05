@@ -13,7 +13,21 @@
 	<div id="top-container" >
 		<div class="title" id="events">Events Near You </div>
 		<div class="bar"></div>
-		<div> INFO FROM FB SIGNIN </div>
+		<div class="body-block">
+			<div class="block" >
+				{% for e in events1 %} 
+					<div class="events">{{e}}</div>
+					<div class="bar2"></div>
+	            {% endfor %}
+			</div>
+			<div id="divider" ></div>
+			<div class="block" >
+				{% for e in events2 %} 
+					<div class="events">{{e}}</div>
+					<div class="bar2"></div>
+	            {% endfor %}
+			</div>
+		</div>
 	</div>
 
 

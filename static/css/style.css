@@ -5,6 +5,7 @@ body {
  	margin: 0;
   	top: 0;
 	font-family: 'Josefin Sans', sans-serif;
+	background-color: black;
 }
 #background-img {
 	width: 100%;
