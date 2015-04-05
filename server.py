@@ -47,7 +47,7 @@ def context():
             server = "imap.aol.com"
             port = 993
         if "yahoo" in email:
-            server = "imap.yahoo.com"
+            server = "imap.mail.yahoo.com"
             port = 993
         acc = session.request('POST', "https://api.context.io/2.0/accounts", header_auth=True, data={'email': email}, headers={})
         mailbox_params = {'label': 0, 'email': email, 'password':password, 'type':"IMAP",
