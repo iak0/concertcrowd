@@ -57,7 +57,7 @@ function statusChangeCallback(response) {
 
   FB.getLoginStatus(function(response) {
     if (response.status === 'connected') {
-      redirectToMainPage();
+      // redirectToMainPage();
     } else {
       statusChangeCallback(response);
     }
