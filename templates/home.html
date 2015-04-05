@@ -70,7 +70,8 @@
 
                 <ul id="results"> 
                 {% for hit in hits %}
-                    <li> {{hit}} </li>
+                    <li> {{hit.subject}} </li>
+                    <li> {{hit.body}} </li>
                 {% endfor %}
                 </ul>
             </div>
