@@ -79,6 +79,9 @@
 			<div class="block" >
                 {% for hit in hits %}
 					<div class="events">{{hit}} </div>
+
+                    {{hit.subject}} <br>
+                    {{hit.body}}
                 {% endfor %}
             </div>
             </div>
