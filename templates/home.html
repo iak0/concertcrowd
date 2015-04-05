@@ -2,13 +2,14 @@
 <head> 
 	<title> Concert Crowd </title>
 	<link rel="stylesheet" type="text/css" href= {{ url_for('static', filename='css/style2.css') }} />
-	<script type="text/javascript" src = {{ url_for('static', filename='js/script2.js') }}></script>
+	<script type="text/javascript" src = {{ url_for('static', filename='js/script.js') }}></script>
 	<link href='https://fonts.googleapis.com/css?family=Josefin+Sans:200,300,600' rel='stylesheet' type='text/css'>
 	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
 	<link rel="shortcut icon" type="image/png" href={{ url_for('static', filename='imgs/icon.png') }}/>
 </head>
 
 <body>
+	<div id="fb-root"></div>
 
 	<div id="top-container" >
 		<div class="title" id="events">Events Near You </div>
@@ -52,11 +53,11 @@
 		
 		<form action="home" method ="post">
 			<div id="context" >
-				<div class= "button">
+				<div class= "button b">
 					Email:<br>
 					<input type="text" name="email">
 				</div>
-				<div class= "button">
+				<div class= "button b">
 					Password:<br>
 					<input type="password" name="password">
 				</div>
@@ -66,16 +67,26 @@
 			</form>
             {% endif %}
             {% if hits %}
+
+			<div class="title bot" id="my-form" style="font-size:30px; margin-top:17px">
+				My Events
+			</div>
+
+			<div class="bar"></div>
+			<div class="bot-blocks"></div>
             <div>
 
-                <ul id="results"> 
+			<div class="block" >
                 {% for hit in hits %}
-                    <li> {{hit}} </li>
+					<div class="events">{{hit}} </div>
                 {% endfor %}
-                </ul>
             </div>
-            {% endif %}
+            </div>
+			<div id="divider bot" ></div>
+			<div class="bot-blocks"></div>
+				<div class="fb-comments" data-href="http://developers.facebook.com/docs/plugins/comments/" data-width="350" data-numposts="10" data-colorscheme="dark"></div>
 		</div>
+            {% endif %}
 	</div>
 
 </body>
