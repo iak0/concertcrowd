@@ -5,6 +5,24 @@ body {
 	color: white;
 	background-color: #222;
 }
+a{
+	color: white;
+    text-decoration: none;
+	color: #d8d8d8;
+}
+a:hover{
+	opacity: 0.5;
+}
+span{
+	font-size: 11;
+	font-weight: lighter;
+	color: #d8d8d8;
+	line-height: 22px;
+}
+.artist{
+	font-size: 22px;
+	font-weight: lighter;
+}
 #top-container{
 	background-color: #222;
 	width: 100%;
@@ -37,6 +55,7 @@ body {
 }
 
 #events{
+	padding-top: 15px;
 	font-size: 40px;
 	width: 90%;
 }
@@ -45,7 +64,10 @@ body {
 	padding: 10px 25px ;
 	display: inline-block;
 	width: 40%;
-	height: 60%;
+	height: 80%;
+	font-size:14px;
+	font-family: "Lato", sans-serif;
+	font-weight: lighter;
 }
 
 #divider{
@@ -71,13 +93,25 @@ body {
 .bar2{
 	height: 1px;
 	width: 90%;
-	margin: 20px auto;
+	margin: 10px auto;
 	background-color: #444;
 	position: relative;
 	display: inline-block;
 }
 .events{
 	text-align: center;
+	height: 95px;
+}
+#back-overlay{
+	position: absolute;
+	z-index: 0;
+	width: 80%;
+	height: 83%;
+	margin: 0 auto;
+	left: 10%;
+	top:20px;
+	background-color: rgba(190,190,190,0.1);
+	border-radius: 10px;
 }
 #top-container .title .bar:hover {
 	background-color: #f4f4f4;

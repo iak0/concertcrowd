@@ -1,4 +1,5 @@
 import os
+from nearbyEvents import*
 from flask import Flask, render_template, request
 from flask.ext.mongoengine import MongoEngine
 from flask.ext.script import Manager, Server
@@ -27,7 +28,11 @@ def login():
 
 @app.route('/home', methods = ["GET"])
 def home():
-    return render_template('home.html')
+	#location zipCode
+	zipCode = '95128'
+	#e1,e2 = nearbyEvents(zipCode)
+	e1,e2 = [],[]
+	return render_template('home.html', events1=e1, events2=e2)
 
 if __name__ == '__main__':
     app.debug = True

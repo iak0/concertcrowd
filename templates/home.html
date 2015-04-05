@@ -16,18 +16,29 @@
 		<div class="body-block">
 			<div class="block" >
 				{% for e in events1 %} 
-					<div class="events">{{e}}</div>
+					<div class="events">
+						<div class="artist">{{e['Artists']}}</div>
+						<span>{{e['Location']}}</span><br>
+						<span>{{e['Date']}} at {{e['Time']}}</span><br>
+						<a href={{e['ticket']}}>Buy Tickets! </a>
+					</div>
 					<div class="bar2"></div>
 	            {% endfor %}
 			</div>
 			<div id="divider" ></div>
 			<div class="block" >
 				{% for e in events2 %} 
-					<div class="events">{{e}}</div>
+					<div class="events">
+						<div class="artist">{{e['Artists']}}</div>
+						<span>{{e['Location']}}</span><br>
+						<span>{{e['Date']}} at {{e['Time']}}</span><br>
+						<a href={{e['ticket']}}>Buy Tickets! </a>
+					</div>
 					<div class="bar2"></div>
 	            {% endfor %}
 			</div>
 		</div>
+		<div id = "back-overlay"></div>
 	</div>
 
 
