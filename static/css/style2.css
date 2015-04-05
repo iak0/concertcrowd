@@ -74,7 +74,9 @@ span{
 	display: inline-block;
 	background-color: rgba(190,190,190,0.1);
 	width:40%;
+	height: 85;
 	border-radius: 10px;
+	overflow: hidden;
 }
 
 #divider{
@@ -112,6 +114,8 @@ span{
 
 #right{
 	position: absolute;
+	left:50%;
+	top: 80px;
 }
 .events{
 	text-align: center;
@@ -120,8 +124,8 @@ span{
 
 .events2{
 	text-align: center;
-	height: 95px;
-	margin: 5% 0;
+	height: 60px;
+	margin: 2% 0;
 }
 #back-overlay{
 	position: absolute;
