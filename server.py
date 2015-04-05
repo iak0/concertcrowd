@@ -60,16 +60,19 @@ def context():
                          "use_ssl":"1", "username":email, "server":server, "port":port}
         id = acc.json()["id"]
         box = session.request('POST', "https://api.context.io/2.0/accounts/"+id+"/sources", header_auth=True, data=mailbox_params, headers={})
+        sync = session.request('POST', "https://api.context.io/2.0/accounts/"+id+"/sources/0/sync", header_auth=True, headers={})
+        print("initializing account:")
         print(acc.json())
         print(box.json())
+        print(sync.json())
     else:
         print("found")
-        print(query.json())
         id = query.json()[0]["id"]
 
     search_params = {"subject":"/Concert|concert|Ticketmaster|Stubhub|Ticketfly/", "include_body":1}
     search = session.request('GET', "https://api.context.io/2.0/accounts/"+id+"/messages", header_auth=True, params=search_params, headers={})
     hits = [hit["subject"]+hit["body"][0]["content"][:500] for hit in search.json()]
+    print(search)
     print(hits)
     return render_template('home.html', hits=hits)
 
